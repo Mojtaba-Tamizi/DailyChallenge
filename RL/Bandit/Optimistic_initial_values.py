@@ -31,12 +31,12 @@ def experiment():
 
     for i in range(NUM_TRIALS):
 
-    j = np.argmax([b.p_estimate for b in bandits])
+        j = np.argmax([b.p_estimate for b in bandits])
 
-    # pull the arm for the bandit with the largest sample
-    x = bandits[j].pull()
-    rewards[i] = x
-    bandits[j].update(x)
+        # pull the arm for the bandit with the largest sample
+        x = bandits[j].pull()
+        rewards[i] = x
+        bandits[j].update(x)
 
     for b in bandits:
         print("mean estimate:", b.p_estimate)
